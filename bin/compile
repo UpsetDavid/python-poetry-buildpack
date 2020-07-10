@@ -17,8 +17,6 @@ echo "-----> Install Poetry"
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python | indent
 
 source $HOME/.poetry/env
-ls $HOME/.poetry
-cp $HOME/.poetry/env /app/.poetry/env
 
 echo "-----> Export requirements.txt from Poetry"
 
@@ -51,3 +49,5 @@ else
   echo "-----> $VERSION not valid, please specify an exact Python version (e.g. 3.8.1) in your pyproject.toml (and thus poetry.lock)"
   exit 1
 fi
+
+PYTHONPATH=. poetry run asphalt run config.yml
