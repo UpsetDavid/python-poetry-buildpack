@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 export BUILD_DIR=$1
-export POETRY_VERSION=1.0.8
+export POETRY_VERSION=1.0.9
 
 function indent() {
         c='s/^/       /'
@@ -17,6 +17,8 @@ echo "-----> Install Poetry"
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python | indent
 
 source $HOME/.poetry/env
+ls $HOME/.poetry
+cp $HOME/.poetry/env /app/.poetry/env
 
 echo "-----> Export requirements.txt from Poetry"
 
